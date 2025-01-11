@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivclock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            width: 320px;
+            background-color: #015854;
+            height: 1080px;
+            margin: 0 auto;
+            color: white;
+            font-weight: bold;
+            overflow: hidden;
+        }
+        .clock {
+            margin: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div class="clock" id="london">London: </div>
+    <div class="clock" id="boston">Boston: </div>
+    <div class="clock" id="seattle">Seattle: </div>
+    <div class="clock" id="singapore">Singapore: </div>
+    <div class="clock" id="sydney">Sydney: </div>
+    <img src="Riverlae-logo-centre-banner-jpg.webp" width="300" height="230" alt="rivlogo" class="center" style="margin-top: -20px;">
+    
+    <script>
+        function updateTime() {
+            const options = { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const londonTime = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
+            const bostonTime = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/New_York' });
+                const seattleTime = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' });
+                const singaporeTime = new Date().toLocaleTimeString('en-SG', { ...options, timeZone: 'Asia/Singapore' });
+                const sydneyTime = new Date().toLocaleTimeString('en-AU', { ...options, timeZone: 'Australia/Sydney' });
+    
+                document.getElementById('london').textContent = `London: ${londonTime}`;
+                document.getElementById('boston').textContent = `Boston: ${bostonTime}`;
+                document.getElementById('seattle').textContent = `Seattle: ${seattleTime}`;
+                document.getElementById('singapore').textContent = `Singapore: ${singaporeTime}`;
+                document.getElementById('sydney').textContent = `Sydney: ${sydneyTime}`;
+            }
+    
+            setInterval(updateTime, 1000);
+                updateTime();
+                        </script>
+            </body>
+            </html>
